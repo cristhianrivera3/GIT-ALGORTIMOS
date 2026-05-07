@@ -7,30 +7,31 @@ public class main {
         System.out.println("¡Hola! Bienvenido al programa.");
     }
     
-    // TU MÉTODO: Pedir dos números enteros no negativos
+    // Metodo para validacion de numeros enteros
     public static int[] pedirNumeros() {
-        Scanner scanner = new Scanner(System.in);
-        int a, b;
-        
-        System.out.println("\n--- Ingreso de números ---");
-        
-        System.out.print("Ingrese el primer número entero no negativo (a): ");
-        a = scanner.nextInt();
-        
-        while (a < 0) {
-            System.out.print("Error: El número no puede ser negativo. Ingrese nuevamente (a): ");
+        try (Scanner scanner = new Scanner(System.in)) {
+            int a, b;
+            
+            System.out.println("\n--- Ingreso de números ---");
+            
+            System.out.print("Ingrese el primer número entero no negativo (a): ");
             a = scanner.nextInt();
-        }
-        
-        System.out.print("Ingrese el segundo número entero no negativo (b): ");
-        b = scanner.nextInt();
-        
-        while (b < 0) {
-            System.out.print("Error: El número no puede ser negativo. Ingrese nuevamente (b): ");
+            
+            while (a < 0) {
+                System.out.print("Error: El número no puede ser negativo. Ingrese nuevamente (a): ");
+                a = scanner.nextInt();
+            }
+            
+            System.out.print("Ingrese el segundo número entero no negativo (b): ");
             b = scanner.nextInt();
+            
+            while (b < 0) {
+                System.out.print("Error: El número no puede ser negativo. Ingrese nuevamente (b): ");
+                b = scanner.nextInt();
+            }
+            
+            return new int[]{a, b};
         }
-        
-        return new int[]{a, b};
     }
     
     // Método de suma con validación
